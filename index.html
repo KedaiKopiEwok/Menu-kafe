@@ -24,32 +24,17 @@
       margin: 0;
       font-size: 2.5rem;
     }
-    .filter-buttons {
+    h2.section-title {
       text-align: center;
-      padding: 1rem 0;
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .filter-buttons button {
-      margin: 0 6px;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background-color: #fff;
+      margin: 3rem 0 1rem;
+      font-size: 1.8rem;
       color: #5e3b27;
-      border: 2px solid #5e3b27;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: 0.3s;
     }
-    .filter-buttons button:hover {
-      background-color: #5e3b27;
-      color: #fff;
-    }
-    main {
+    .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
-      padding: 2rem;
+      padding: 1rem 2rem;
     }
     .menu-item {
       background: white;
@@ -66,7 +51,7 @@
       height: 180px;
       object-fit: cover;
     }
-    .menu-item h2 {
+    .menu-item h3 {
       margin: 1rem 0 0.5rem 0;
       text-align: center;
       font-size: 1.2rem;
@@ -96,6 +81,7 @@
       text-decoration: none;
       border-radius: 25px;
       transition: 0.3s;
+      width: fit-content;
     }
     .order-btn:hover {
       background-color: #3f2618;
@@ -107,50 +93,44 @@
     <h1>Kedai Kopi Ewok</h1>
   </header>
 
-  <div class="filter-buttons">
-    <button onclick="filterMenu('all')">Semua</button>
-    <button onclick="filterMenu('espresso based')">espresso based</button>
-    <button onclick="filterMenu('speciality')">speciality</button>
-    <button onclick="filterMenu('single origin coffe')">single origin coffe</button>
-    <button onclick="filterMenu('aneka latte')">aneka latte</button>
-    <button onclick="filterMenu('aneka Tea')">aneka Tea</button>
-    <button onclick="filterMenu('aneka soda')">aneka soda</button>
-  </div>
-
-  <main id="menu-list">
-    <div class="menu-item kopi">
-      <img src="images/placeholder.jpg" alt="Kopi Susu">
-      <h2>Kopi Susu</h2>
-      <p>Kopi susu creamy dengan rasa khas.</p>
+  <h2 class="section-title">Menu Makanan</h2>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/mie-goreng.jpg" alt="Mie Goreng">
+      <h3>Mie Goreng</h3>
+      <p>Mie goreng lezat dengan topping sayur dan telur.</p>
       <div class="rating">★★★★☆</div>
-      <div class="price">Rp18.000</div>
+      <div class="price">Rp15.000</div>
       <a href="#" class="order-btn">Pesan Sekarang</a>
     </div>
-    <div class="menu-item snack">
+    <div class="menu-item">
       <img src="images/placeholder.jpg" alt="Pisang Goreng">
-      <h2>Pisang Goreng</h2>
-      <p>Pisang goreng renyah dan manis.</p>
+      <h3>Pisang Goreng</h3>
+      <p>Pisang goreng hangat dan renyah.</p>
       <div class="rating">★★★★☆</div>
       <div class="price">Rp10.000</div>
       <a href="#" class="order-btn">Pesan Sekarang</a>
     </div>
-    <div class="menu-item teh">
+  </section>
+
+  <h2 class="section-title">Menu Minuman</h2>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/placeholder.jpg" alt="Kopi Susu">
+      <h3>Kopi Susu</h3>
+      <p>Kopi susu creamy dengan rasa khas.</p>
+      <div class="rating">★★★★★</div>
+      <div class="price">Rp18.000</div>
+      <a href="#" class="order-btn">Pesan Sekarang</a>
+    </div>
+    <div class="menu-item">
       <img src="images/placeholder.jpg" alt="Teh Tarik">
-      <h2>Teh Tarik</h2>
+      <h3>Teh Tarik</h3>
       <p>Teh tarik lembut dan menyegarkan.</p>
       <div class="rating">★★★☆☆</div>
       <div class="price">Rp15.000</div>
       <a href="#" class="order-btn">Pesan Sekarang</a>
     </div>
-  </main>
-
-  <script>
-    function filterMenu(category) {
-      const items = document.querySelectorAll('.menu-item');
-      items.forEach(item => {
-        item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
-      });
-    }
-  </script>
+  </section>
 </body>
 </html>
