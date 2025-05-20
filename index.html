@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kedai Kopi Ewok</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background: #f3efe4 url('https://www.transparenttextures.com/patterns/paper-2.png');
+      color: #3e2f26;
+    }
+    header {
+      background-color: #a27c5c;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      position: relative;
+      animation: fadeDown 1s ease-in-out;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header img.logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    h1 { margin: 0; font-size: 2.5rem; }
+    .contact {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .contact a {
+      color: white;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+    h2 {
+      text-align: center;
+      border-bottom: 2px dashed #a27c5c;
+      margin: 2rem 0 1rem;
+      animation: fadeIn 1s;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+    }
+    .menu-item {
+      background: #fffdf7;
+      border: 2px solid #d4bfa8;
+      border-radius: 8px;
+      text-align: center;
+      padding-bottom: 1rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: zoomFade 0.8s ease;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+    }
+    @keyframes zoomFade {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .menu-item h3 { margin: 0.5rem 0 0.3rem; }
+    .menu-item p { font-size: 0.9rem; margin: 0.3rem 1rem; }
+    .rating { color: #e3b200; margin: 0.2rem; }
+    .price { font-weight: bold; margin: 0.3rem 0; }
+    .order-btn {
+      background-color: #a27c5c;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .order-btn:hover { background-color: #8c6648; }
 
+    .promo-banner {
+      background: #d9c2a3;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      margin: 2rem 0;
+      border-top: 2px dashed #a27c5c;
+      border-bottom: 2px dashed #a27c5c;
+    }
+    footer {
+      background-color: #a27c5c;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.jpg" class="logo" alt="Logo Kedai" />
+    <h1>Kedai Kopi Ewok</h1>
+    <div class="contact">
+      Jl. Kenangan No.1, Bandung<br>
+      <a href="mailto:kedaiewok@gmail.com">kedaiewok@gmail.com</a> |
+      <a href="https://instagram.com/kedaiewok" target="_blank">@kedaiewok</a>
+    </div>
+  </header>
+
+  <div class="promo-banner">
+    Promo Spesial: Beli 2 kopi gratis 1 roti panggang!
+  </div>
+
+  <h2>Menu Makanan</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="images/mie-goreng.jpg" alt="Mie Goreng">
+      <h3>Mie Goreng Spesial</h3>
+      <p>Mi goreng dengan topping ayam, telur, dan sayuran</p>
+      <div class="rating">★★★★★</div>
+      <div class="price>">Rp25.000</div>
+      <a class="order-btn" href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Mie%20Goreng%20Spesial" target="_blank">Pesan Sekarang</a>
+    </div>
+    <!-- Tambahkan menu makanan lainnya -->
+  </div>
+
+  <h2>Menu Minuman</h2>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <img src="images/kopi-susu.jpg" alt="Kopi Susu">
+      <h3>Kopi Susu Gula Aren</h3>
+      <p>Kopi robusta dengan susu segar dan gula aren pilihan</p>
+      <div class="rating">★★★★★</div>
+      <div class="price">Rp20.000</div>
+      <a class="order-btn" href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kopi%20Susu%20Gula%20Aren" target="_blank">Pesan Sekarang</a>
+    </div>
+    <!-- Tambahkan menu minuman lainnya -->
+  </div>
+
+  <footer>
+    &copy; 2025 Kedai Kopi Ewok. All rights reserved. Review kami di <a href="https://goo.gl/maps/example" target="_blank" style="color: #fff; text-decoration: underline;">Google Maps</a>.
+  </footer>
+</body>
+  </html>
