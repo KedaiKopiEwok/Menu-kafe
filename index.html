@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kedai Kopi Ewok</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    background: #f3efe4 url('https://www.transparenttextures.com/patterns/paper-2.png');
+    color: #3e2f26;
+  }
+  header {
+    background-color: #a27c5c;
+    color: #fdfdfd;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+  }
+  header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  .contact {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  .contact a {
+    color: #fdfdfd;
+    text-decoration: none;
+    margin: 0 0.5rem;
+  }
+  h2.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+    border-bottom: 2px dashed #a27c5c;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 0 2rem 2rem 2rem;
+  }
+  .menu-item {
+    background: #fffdf7;
+    border: 2px solid #d4bfa8;
+    border-radius: 8px;
+    text-align: center;
+    padding-bottom: 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  }
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 2px solid #d4bfa8;
+  }
+  .menu-item h3 {
+    margin: 0.8rem 0 0.3rem;
+    font-size: 1.3rem;
+  }
+  .menu-item p {
+    font-size: 0.95rem;
+    margin: 0 1rem;
+  }
+  .rating {
+    margin: 0.4rem 0;
+    color: #e3b200;
+  }
+  .price {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .order-btn {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background-color: #a27c5c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background 0.3s;
+  }
+  .order-btn:hover {
+    background-color: #8c6648;
+  }
+  footer {
+    background-color: #a27c5c;
+    color: #fdfdfd;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .promo-banner {
+    background: #d9c2a3;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 2rem 0;
+    border-top: 2px dashed #a27c5c;
+    border-bottom: 2px dashed #a27c5c;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Logo Kedai" />
+    <h1>Kedai Kopi Ewok</h1>
+    <div class="contact">
+      <span>Jl. Aroma Kopi No. 7, Bandung</span> |
+      <a href="https://instagram.com/kedaikopiewok" target="_blank">@kedaikopiewok</a> |
+      <a href="mailto:info@kedaikopiewok.co.id">info@kedaikopiewok.co.id</a>
+    </div>
+  </header>
+
+  <div class="promo-banner">
+    Promo Minggu Ini: Paket Hemat <strong>Kopi Susu + Roti Bakar</strong> hanya <strong>Rp25.000</strong>! <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Paket%20Hemat" class="order-btn" style="font-size:0.9rem;">Pesan via WhatsApp</a>
+  </div>
+
+  <h2 class="section-title">Menu Makanan</h2>
+
+  <!-- Category: Makanan Utama -->
+  <h3 class="section-title" style="font-size:1.5rem;">Makanan Utama</h3>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/mie-goreng.jpg" alt="Mie Goreng">
+      <h3>Mie Goreng</h3>
+      <p>Mie goreng spesial dengan topping telur dan sayur segar.</p>
+      <div class="rating">★★★★☆</div>
+      <div class="price">Rp18.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Mie%20Goreng" class="order-btn">Pesan</a>
+    </div>
+    <div class="menu-item">
+      <img src="images/nasi-goreng.jpg" alt="Nasi Goreng">
+      <h3>Nasi Goreng</h3>
+      <p>Nasi goreng jawa dengan ayam suwir dan kerupuk.</p>
+      <div class="rating">★★★★★</div>
+      <div class="price">Rp20.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Nasi%20Goreng" class="order-btn">Pesan</a>
+    </div>
+  </section>
+
+  <!-- Category: Snack -->
+  <h3 class="section-title" style="font-size:1.5rem;">Snack</h3>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/roti-bakar.jpg" alt="Roti Bakar">
+      <h3>Roti Bakar Cokelat</h3>
+      <p>Roti bakar renyah isi cokelat leleh.</p>
+      <div class="rating">★★★★☆</div>
+      <div class="price">Rp12.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Roti%20Bakar" class="order-btn">Pesan</a>
+    </div>
+    <div class="menu-item">
+      <img src="images/pisang-goreng.jpg" alt="Pisang Goreng">
+      <h3>Pisang Goreng</h3>
+      <p>Pisang goreng hangat dengan taburan gula halus.</p>
+      <div class="rating">★★★★☆</div>
+      <div class="price">Rp10.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Pisang%20Goreng" class="order-btn">Pesan</a>
+    </div>
+  </section>
+
+  <h2 class="section-title">Menu Minuman</h2>
+
+  <!-- Category: Kopi -->
+  <h3 class="section-title" style="font-size:1.5rem;">Kopi</h3>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/kopi-susu.jpg" alt="Kopi Susu">
+      <h3>Kopi Susu</h3>
+      <p>Kopi Arabica dengan susu segar dan gula aren.</p>
+      <div class="rating">★★★★★</div>
+      <div class="price">Rp18.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Kopi%20Susu" class="order-btn">Pesan</a>
+    </div>
+    <div class="menu-item">
+      <img src="images/es-kopi-hitam.jpg" alt="Es Kopi Hitam">
+      <h3>Es Kopi Hitam</h3>
+      <p>Kopi hitam dingin tanpa gula, segar dan kuat.</p>
+      <div class="rating">★★★★☆</div>
+      <div class="price">Rp15.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Es%20Kopi%20Hitam" class="order-btn">Pesan</a>
+    </div>
+  </section>
+
+  <!-- Category: Teh -->
+  <h3 class="section-title" style="font-size:1.5rem;">Teh</h3>
+  <section class="menu-grid">
+    <div class="menu-item">
+      <img src="images/teh-tarik.jpg" alt="Teh Tarik">
+      <h3>Teh Tarik</h3>
+      <p>Teh tarik hangat dengan buih lembut.</p>
+      <div class="rating">★★★☆☆</div>
+      <div class="price">Rp12.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Teh%20Tarik" class="order-btn">Pesan</a>
+    </div>
+    <div class="menu-item">
+      <img src="images/teh-hijau.jpg" alt="Teh Hijau">
+      <h3>Teh Hijau</h3>
+      <p>Teh hijau alami dengan aroma menenangkan.</p>
+      <div class="rating">★★★☆☆</div>
+      <div class="price">Rp10.000</div>
+      <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20Teh%20Hijau" class="order-btn">Pesan</a>
+    </div>
+  </section>
+
+  <footer>
+    ⭐⭐⭐⭐⭐ 4.8/5 (120+ ulasan) di <a href="https://goo.gl/maps/xyz123" target="_blank" style="color:#ffe9a7;">Google Maps</a><br/>
+    © 2025 Kedai Kopi Ewok
+  </footer>
+</body>
+</html>
