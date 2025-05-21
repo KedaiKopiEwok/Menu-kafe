@@ -3,156 +3,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kedai Kopi Ewok</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <title>Kafe Minimalis</title>
   <style>
+    :root {
+      --primary: #0077cc;
+      --bg: #f8f9fa;
+      --card-bg: #fff;
+      --text: #333;
+    }
+
     body {
       margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      background: #f3efe4 url('https://www.transparenttextures.com/patterns/paper-2.png');
-      color: #3e2f26;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
     }
+
     header {
-      background-color: #a27c5c;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      position: relative;
-      animation: fadeDown 1s ease-in-out;
+      background: #fff;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      flex-wrap: wrap;
     }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    header img.logo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      position: absolute;
-      top: 10px;
-      left: 10px;
+
+    .logo img {
+      height: 50px;
     }
-    h1 { margin: 0; font-size: 2.5rem; }
-    .contact {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+
+    .info {
+      text-align: right;
     }
-    .contact a {
-      color: white;
-      margin: 0 0.5rem;
+
+    .info a {
+      margin-left: 1rem;
       text-decoration: none;
+      color: var(--primary);
     }
-    h2 {
-      text-align: center;
-      border-bottom: 2px dashed #a27c5c;
-      margin: 2rem 0 1rem;
-      animation: fadeIn 1s;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+
+    .banner {
+      background: linear-gradient(to right, #ffeaa7, #fab1a0);
       padding: 1rem 2rem;
-    }
-    .menu-item {
-      background: #fffdf7;
-      border: 2px solid #d4bfa8;
-      border-radius: 8px;
       text-align: center;
-      padding-bottom: 1rem;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: zoomFade 0.8s ease;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out;
     }
-    .menu-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-    @keyframes zoomFade {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-buttons button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .filter-buttons button:hover {
+      background: #005fa3;
+    }
+
+    .menu-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .menu-item {
+      background-color: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .menu-item img {
       width: 100%;
       height: 180px;
       object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
     }
-    .menu-item h3 { margin: 0.5rem 0 0.3rem; }
-    .menu-item p { font-size: 0.9rem; margin: 0.3rem 1rem; }
-    .rating { color: #e3b200; margin: 0.2rem; }
-    .price { font-weight: bold; margin: 0.3rem 0; }
-    .order-btn {
-      background-color: #a27c5c;
-      color: white;
-      padding: 0.4rem 1.2rem;
-      border-radius: 20px;
-      text-decoration: none;
-      display: inline-block;
+
+    .menu-text {
+      text-align: center;
+    }
+
+    .menu-text h3 {
+      margin: 0.3rem 0;
+    }
+
+    .menu-text p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .menu-text button {
+      margin-top: 0.7rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
       transition: background 0.3s;
     }
-    .order-btn:hover { background-color: #8c6648; }
 
-    .promo-banner {
-      background: #d9c2a3;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.1rem;
-      margin: 2rem 0;
-      border-top: 2px dashed #a27c5c;
-      border-bottom: 2px dashed #a27c5c;
+    .menu-text button:hover {
+      background: #005fa3;
     }
-    footer {
-      background-color: #a27c5c;
-      color: white;
+
+    .rating {
+      margin-top: 2rem;
+      font-size: 0.95rem;
       text-align: center;
-      padding: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media(max-width: 768px) {
+      .menu-section {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        text-align: left;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="images/logo.jpg" class="logo" alt="Logo Kedai" />
-    <h1>Kedai Kopi Ewok</h1>
-    <div class="contact">
-      Jl. Kenangan No.1, Bandung<br>
-      <a href="mailto:kedaiewok@gmail.com">kedaiewok@gmail.com</a> |
-      <a href="https://instagram.com/kedaiewok" target="_blank">@kedaiewok</a>
+    <div class="logo">
+      <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Logo Kafe" />
+      <strong>Kafe Minimalis</strong>
+    </div>
+    <div class="info">
+      <div>Jl. Contoh No. 123, Jakarta</div>
+      <div>
+        <a href="https://instagram.com/kafeminimalis" target="_blank">Instagram</a>
+        <a href="https://facebook.com/kafeminimalis" target="_blank">Facebook</a>
+        <a href="https://maps.google.com/?q=Kafe+Minimalis" target="_blank">Google Maps</a>
+      </div>
     </div>
   </header>
 
-  <div class="promo-banner">
-    Promo Spesial: Beli 2 kopi gratis 1 roti panggang!
+  <div class="banner">
+    Promo Minggu Ini: Beli 1 Kopi Susu Gratis 1 Donat!
   </div>
 
-  <h2>Menu Makanan</h2>
-  <div class="menu-grid">
-    <div class="menu-item">
-      <img src="images/mie-goreng.jpg" alt="Mie Goreng">
-      <h3>Mie Goreng Spesial</h3>
-      <p>Mi goreng dengan topping ayam, telur, dan sayuran</p>
-      <div class="rating">★★★★★</div>
-      <div class="price>">Rp25.000</div>
-      <a class="order-btn" href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Mie%20Goreng%20Spesial" target="_blank">Pesan Sekarang</a>
+  <main>
+    <div class="filter-buttons">
+      <button onclick="filterMenu('all')">Semua</button>
+      <button onclick="filterMenu('makanan')">Makanan</button>
+      <button onclick="filterMenu('minuman')">Minuman</button>
     </div>
-    <!-- Tambahkan menu makanan lainnya -->
-  </div>
 
-  <h2>Menu Minuman</h2>
-  <div class="menu-grid">
-    <div class="menu-item">
-      <img src="images/kopi-susu.jpg" alt="Kopi Susu">
-      <h3>Kopi Susu Gula Aren</h3>
-      <p>Kopi robusta dengan susu segar dan gula aren pilihan</p>
-      <div class="rating">★★★★★</div>
-      <div class="price">Rp20.000</div>
-      <a class="order-btn" href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Kopi%20Susu%20Gula%20Aren" target="_blank">Pesan Sekarang</a>
+    <div class="menu-section">
+      <div class="menu-item" data-category="makanan">
+        <img src="https://via.placeholder.com/400x200.png?text=Roti+Bakar" alt="Roti Bakar" />
+        <div class="menu-text">
+          <h3>Roti Bakar Cokelat</h3>
+          <p>Roti panggang isi cokelat lumer yang cocok untuk teman kopi pagi Anda.</p>
+          <button>Pesan Sekarang</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="makanan">
+        <img src="https://via.placeholder.com/400x200.png?text=Nasi+Goreng" alt="Nasi Goreng" />
+        <div class="menu-text">
+          <h3>Nasi Goreng Spesial</h3>
+          <p>Nasi goreng dengan ayam suwir, telur, dan bumbu khas kafe kami.</p>
+          <button>Pesan Sekarang</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="minuman">
+        <img src="https://via.placeholder.com/400x200.png?text=Kopi+Susu" alt="Kopi Susu" />
+        <div class="menu-text">
+          <h3>Kopi Susu</h3>
+          <p>Campuran espresso dan susu segar, favorit pelanggan sepanjang hari.</p>
+          <button>Pesan Sekarang</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-category="minuman">
+        <img src="https://via.placeholder.com/400x200.png?text=Teh+Lemon" alt="Teh Lemon" />
+        <div class="menu-text">
+          <h3>Teh Lemon Dingin</h3>
+          <p>Segarnya teh hitam dingin dengan irisan lemon asli.</p>
+          <button>Pesan Sekarang</button>
+        </div>
+      </div>
     </div>
-    <!-- Tambahkan menu minuman lainnya -->
-  </div>
+
+    <div class="rating">
+      Rating Google Maps: <strong>4.7/5</strong> (123 ulasan)<br />
+      <a href="https://maps.google.com/?q=Kafe+Minimalis" target="_blank">Lihat Ulasan</a>
+    </div>
+  </main>
 
   <footer>
-    &copy; 2025 Kedai Kopi Ewok. All rights reserved. Review kami di <a href="https://goo.gl/maps/example" target="_blank" style="color: #fff; text-decoration: underline;">Google Maps</a>.
+    &copy; 2025 Kafe Minimalis. All rights reserved.
   </footer>
+
+  <script>
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    window.onload = () => filterMenu('all');
+  </script>
 </body>
-  </html>
+</html>
