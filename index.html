@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1024">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu Kafe</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -113,10 +112,21 @@
   <section class="cta">
     <h2>Sudah siap memesan?</h2>
     <button>Pesan Sekarang</button>
-    <div style="margin-top: 20px;">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://kafemoderna.id/pesan&size=150x150" alt="QR Code untuk Pesan" style="border-radius: 12px;">
-      <p>Scan QR ini untuk langsung memesan dari ponsel Anda</p>
+    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; justify-items: center;">
+      <div style="text-align: center;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://shopee.co.id/universalkafe&size=150x150" alt="QR ShopeeFood" style="border-radius: 12px;">
+        <p>ShopeeFood</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://food.grab.com/id/id/restaurant/kafe-moderna&size=150x150" alt="QR GrabFood" style="border-radius: 12px;">
+        <p>GrabFood</p>
+      </div>
+      <div style="text-align: center;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://gofood.link/kafemoderna&size=150x150" alt="QR GoFood" style="border-radius: 12px;">
+        <p>GoFood</p>
+      </div>
     </div>
+    <p style="margin-top: 20px;">Scan salah satu QR untuk langsung memesan dari layanan favoritmu!</p>
   </section>
 
   <footer>
