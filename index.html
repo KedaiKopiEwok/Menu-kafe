@@ -63,34 +63,45 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .sidebar {
+      flex: 0 0 200px;
     }
 
     .filter-buttons {
-      text-align: center;
-      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .filter-buttons button {
       background: var(--primary);
       color: #fff;
       border: none;
-      margin: 0.3rem;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+      padding: 0.6rem 1rem;
+      border-radius: 25px;
       cursor: pointer;
       transition: background 0.3s ease;
+      text-align: left;
     }
 
     .filter-buttons button:hover {
       background: #005fa3;
     }
 
+    .menu-container {
+      flex: 1;
+    }
+
     .menu-section {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1rem;
     }
 
@@ -154,13 +165,12 @@
     }
 
     @media(max-width: 768px) {
-      .menu-section {
-        grid-template-columns: 1fr;
+      main {
+        flex-direction: column;
       }
 
-      .info {
-        text-align: left;
-        margin-top: 1rem;
+      .sidebar {
+        width: 100%;
       }
     }
   </style>
@@ -187,60 +197,64 @@
   </div>
 
   <main>
-    <div class="filter-buttons">
-      <button onclick="filterMenu('all')">Semua</button>
-      <button onclick="filterMenu('makanan')">Makanan</button>
-      <button onclick="filterMenu('nasi')">- Nasi</button>
-      <button onclick="filterMenu('mie')">- Mie</button>
-      <button onclick="filterMenu('minuman')">Minuman</button>
-      <button onclick="filterMenu('kopi')">- Kopi</button>
-      <button onclick="filterMenu('non-kopi')">- Non-Kopi</button>
-    </div>
+    <aside class="sidebar">
+      <div class="filter-buttons">
+        <button onclick="filterMenu('all')">Semua</button>
+        <button onclick="filterMenu('makanan')">Makanan</button>
+        <button onclick="filterMenu('nasi')">&nbsp;&nbsp;&nbsp;- Nasi</button>
+        <button onclick="filterMenu('mie')">&nbsp;&nbsp;&nbsp;- Mie</button>
+        <button onclick="filterMenu('minuman')">Minuman</button>
+        <button onclick="filterMenu('kopi')">&nbsp;&nbsp;&nbsp;- Kopi</button>
+        <button onclick="filterMenu('non-kopi')">&nbsp;&nbsp;&nbsp;- Non-Kopi</button>
+      </div>
+    </aside>
 
-    <div class="menu-section">
-      <!-- Makanan -->
-      <div class="menu-item" data-category="makanan nasi">
-        <img src="https://via.placeholder.com/400x200.png?text=Nasi+Goreng" alt="Nasi Goreng" />
-        <div class="menu-text">
-          <h3>Nasi Goreng</h3>
-          <p>Nasi goreng ayam dengan bumbu rahasia.</p>
-          <button>Pesan Sekarang</button>
+    <section class="menu-container">
+      <div class="menu-section">
+        <!-- Makanan -->
+        <div class="menu-item" data-category="makanan nasi">
+          <img src="https://via.placeholder.com/400x200.png?text=Nasi+Goreng" alt="Nasi Goreng" />
+          <div class="menu-text">
+            <h3>Nasi Goreng</h3>
+            <p>Nasi goreng ayam dengan bumbu rahasia.</p>
+            <button>Pesan Sekarang</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="makanan mie">
+          <img src="https://via.placeholder.com/400x200.png?text=Mie+Goreng" alt="Mie Goreng" />
+          <div class="menu-text">
+            <h3>Mie Goreng Spesial</h3>
+            <p>Mie goreng pedas dengan topping telur dan ayam.</p>
+            <button>Pesan Sekarang</button>
+          </div>
+        </div>
+
+        <!-- Minuman -->
+        <div class="menu-item" data-category="minuman kopi">
+          <img src="https://via.placeholder.com/400x200.png?text=Kopi+Susu" alt="Kopi Susu" />
+          <div class="menu-text">
+            <h3>Kopi Susu</h3>
+            <p>Kopi robusta dengan susu segar dan gula aren.</p>
+            <button>Pesan Sekarang</button>
+          </div>
+        </div>
+
+        <div class="menu-item" data-category="minuman non-kopi">
+          <img src="https://via.placeholder.com/400x200.png?text=Matcha+Latte" alt="Matcha Latte" />
+          <div class="menu-text">
+            <h3>Matcha Latte</h3>
+            <p>Minuman teh hijau Jepang yang creamy dan segar.</p>
+            <button>Pesan Sekarang</button>
+          </div>
         </div>
       </div>
 
-      <div class="menu-item" data-category="makanan mie">
-        <img src="https://via.placeholder.com/400x200.png?text=Mie+Goreng" alt="Mie Goreng" />
-        <div class="menu-text">
-          <h3>Mie Goreng Spesial</h3>
-          <p>Mie goreng pedas dengan topping telur dan ayam.</p>
-          <button>Pesan Sekarang</button>
-        </div>
+      <div class="rating">
+        Rating Google Maps: <strong>4.7/5</strong> (123 ulasan)<br />
+        <a href="https://maps.google.com/?q=Kafe+Minimalis" target="_blank">Lihat Ulasan</a>
       </div>
-
-      <!-- Minuman -->
-      <div class="menu-item" data-category="minuman kopi">
-        <img src="https://via.placeholder.com/400x200.png?text=Kopi+Susu" alt="Kopi Susu" />
-        <div class="menu-text">
-          <h3>Kopi Susu</h3>
-          <p>Kopi robusta dengan susu segar dan gula aren.</p>
-          <button>Pesan Sekarang</button>
-        </div>
-      </div>
-
-      <div class="menu-item" data-category="minuman non-kopi">
-        <img src="https://via.placeholder.com/400x200.png?text=Matcha+Latte" alt="Matcha Latte" />
-        <div class="menu-text">
-          <h3>Matcha Latte</h3>
-          <p>Minuman teh hijau Jepang yang creamy dan segar.</p>
-          <button>Pesan Sekarang</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="rating">
-      Rating Google Maps: <strong>4.7/5</strong> (123 ulasan)<br />
-      <a href="https://maps.google.com/?q=Kafe+Minimalis" target="_blank">Lihat Ulasan</a>
-    </div>
+    </section>
   </main>
 
   <footer>
