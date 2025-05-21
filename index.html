@@ -1,135 +1,139 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kage Coffee</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Kafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    a[href*="wa.me"] {
-      animation: bounce 2s infinite;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background-color: #f9f9f9; color: #333; padding: 20px; transition: background-color 0.3s, color 0.3s; }
+    body.dark-mode { background-color: #222; color: #eee; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    nav a { margin-left: 20px; text-decoration: none; color: inherit; font-weight: 500; }
+    .filters { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .filters button { border: 1px solid #ccc; background: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .menu-item { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 15px; text-align: center; transition: transform 0.3s; }
+    .menu-item:hover { transform: scale(1.03); }
+    .dark-mode .menu-item { background: #333; }
+    .menu-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
+    .menu-item h3 { margin: 10px 0 5px; }
+    .menu-item p { font-size: 14px; color: #666; margin-bottom: 8px; }
+    .dark-mode .menu-item p { color: #ccc; }
+    .rating { color: #f5a623; margin-bottom: 8px; }
+    .price { font-weight: bold; margin-bottom: 10px; }
+    .btn-order { background-color: #333; color: #fff; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; }
+    .highlight-section { background: #eee; padding: 40px 20px; border-radius: 12px; margin: 40px 0; }
+    .dark-mode .highlight-section { background: #444; }
+    .highlight-section h2 { text-align: center; margin-bottom: 30px; }
+    .cta { text-align: center; margin-top: 40px; }
+    .cta button { padding: 14px 28px; font-size: 16px; background-color: #333; color: #fff; border: none; border-radius: 30px; cursor: pointer; }
+    footer { text-align: center; margin-top: 50px; font-size: 14px; color: #777; }
+    .dark-mode footer { color: #aaa; }
+    .social-icons { margin-top: 10px; animation: fadeIn 1s ease-in; }
+    .social-icons a { margin: 0 8px; text-decoration: none; font-size: 20px; color: #555; transition: transform 0.3s, color 0.3s; }
+    .social-icons a:hover { transform: scale(1.2); color: #f5a623; }
+    .dark-mode .social-icons a { color: #ccc; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .form-section { background: #fff; border-radius: 12px; padding: 20px; margin: 40px auto; max-width: 500px; }
+    .dark-mode .form-section { background: #333; }
+    .form-section h2 { text-align: center; margin-bottom: 20px; }
+    .form-section input, .form-section textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; }
+    .form-section button { padding: 10px 20px; background: #333; color: #fff; border: none; border-radius: 20px; cursor: pointer; }
+    .dark-toggle { cursor: pointer; background: none; border: none; color: #333; font-size: 14px; margin-left: 20px; }
+    .dark-mode .dark-toggle { color: #eee; }
   </style>
 </head>
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-white">
-  <!-- Header -->
-  <header class="p-6 bg-white dark:bg-gray-800 shadow-md flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <img src="https://via.placeholder.com/40" alt="Logo Kage" class="w-10 h-10 rounded-full">
-      <span class="text-2xl font-semibold">Kage Coffee</span>
+<body>
+  <header>
+    <h1>KAFE MODERNA</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Tentang</a>
+      <a href="#">Menu</a>
+      <a href="#">Pesan Sekarang</a>
+      <button class="dark-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
+    </nav>
+  </header>  <section class="filters">
+    <button onclick="filterMenu('all')">Semua</button>
+    <button onclick="filterMenu('makanan')">Makanan</button>
+    <button onclick="filterMenu('minuman')">Minuman</button>
+    <button onclick="filterMenu('kopi')">Kopi</button>
+    <button onclick="filterMenu('dessert')">Dessert</button>
+    <button onclick="filterMenu('signature')">Signature</button>
+  </section>  <section class="menu-grid" id="menuGrid">
+    <div class="menu-item" data-category="minuman kopi">
+      <img src="https://source.unsplash.com/300x200/?matcha" alt="Matcha Latte">
+      <h3>Matcha Latte</h3>
+      <p>Teh hijau Jepang dengan susu segar dan foam lembut.</p>
+      <div class="rating">★★★★★</div>
+      <div class="price">Rp32.000</div>
+      <button class="btn-order">Pesan Sekarang</button>
     </div>
-    <button onclick="document.documentElement.classList.toggle('dark')"
-      class="text-sm px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-gray-700">
-      Toggle Dark Mode
-    </button>
-  </header>
-
-  <!-- Filter Menu -->
-  <section class="p-4">
-    <div class="mb-4 text-center">
-      <button data-category="all" onclick="filterMenu('all')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Semua</button>
-      <button data-category="coffee" onclick="filterMenu('coffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Kopi</button>
-      <button data-category="noncoffee" onclick="filterMenu('noncoffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Non-Kopi</button>
-      <button data-category="snack" onclick="filterMenu('snack')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Camilan</button>
+    <div class="menu-item" data-category="kopi">
+      <img src="https://source.unsplash.com/300x200/?coffee" alt="Espresso">
+      <h3>Espresso</h3>
+      <p>Single shot kopi pekat pilihan.</p>
+      <div class="rating">★★★★☆</div>
+      <div class="price">Rp20.000</div>
+      <button class="btn-order">Pesan Sekarang</button>
     </div>
-
-    <div id="menu" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <!-- Contoh item menu -->
-      <div class="menu-item coffee bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-        <img src="https://imgur.com/a/wv2rCEF" alt="bawok">
-        <h3 class="text-lg font-semibold">tempek</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Espresso dengan susu steam lembut</p>
-        <p class="text-sm font-medium mt-1">Rp 28.000</p>
-        <div class="flex items-center mt-2 text-yellow-400">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.955L10 0l2.95 5.955 6.562.955-4.756 4.635 1.122 6.545z"/></svg>
-          <span class="ml-1 text-sm">4.8</span>
-        </div>
-        <button onclick="openModal('Caffe Latte', 'Espresso dengan susu steam lembut')"
-          class="mt-2 text-sm bg-blue-500 text-white px-4 py-1 rounded">Detail</button>
+  </section>  <section class="highlight-section">
+    <h2>Menu Unggulan</h2>
+    <div class="menu-grid">
+      <div class="menu-item" data-category="dessert signature">
+        <img src="https://source.unsplash.com/300x200/?cake" alt="Red Velvet Cake">
+        <h3>Red Velvet Cake</h3>
+        <p>Lembut, manis, dan penuh rasa cinta.</p>
+        <div class="rating">★★★★★</div>
+        <div class="price">Rp27.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
       </div>
     </div>
-  </section>
-
-  <!-- Modal -->
-  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
-    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-96 max-w-full">
-      <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
-      <p id="modalDesc" class="mb-4"></p>
-      <button onclick="closeModal()" class="bg-red-500 text-white px-4 py-1 rounded">Tutup</button>
+  </section>  <section class="form-section">
+    <h2>Form Pemesanan</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="nama" placeholder="Nama Anda" required>
+      <input type="text" name="menu" placeholder="Menu yang dipesan" required>
+      <textarea name="catatan" placeholder="Catatan tambahan..."></textarea>
+      <button type="submit">Kirim Pesanan</button>
+    </form>
+  </section>  <section class="cta">
+    <h2>Sudah siap memesan?</h2>
+    <button>Pesan Sekarang</button>
+    <div style="margin-top: 20px;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://kafemoderna.id/pesan&size=150x150" alt="QR Code untuk Pesan" style="border-radius: 12px;">
+      <p>Scan QR ini untuk langsung memesan dari ponsel Anda</p>
     </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-gray-100 dark:bg-gray-800 mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400">
-    <div class="flex justify-center gap-6 mb-4">
-      <a href="https://instagram.com/kagecoffee" target="_blank" class="hover:text-pink-500" aria-label="Instagram">
-        <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
-        </svg>
-      </a>
-      <a href="https://facebook.com/kagecoffee" target="_blank" class="hover:text-blue-600" aria-label="Facebook">
-        <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13.5 22v-8h2.4l.3-3H13.5v-1.8c0-.9.3-1.5 1.5-1.5H16V5.2c-.3 0-1.2-.2-2.3-.2-2.5 0-4.2 1.5-4.2 4.3V11H7v3h2.9v8h3.6z"/>
-        </svg>
-      </a>
-      <a href="https://tiktok.com/@kagecoffee" target="_blank" class="hover:text-black dark:hover:text-white" aria-label="TikTok">
-        <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M16 8.29a5.94 5.94 0 0 0 3.5 1.14V6.42a4.41 4.41 0 0 1-2.5-.77 4.37 4.37 0 0 1-1.5-2.38H13.5v13.07a2.6 2.6 0 1 1-2.57-2.98 2.73 2.73 0 0 1 1.07.24V9.16a5.91 5.91 0 0 0-1.07-.09 5.99 5.99 0 1 0 5.57 8.28V8.29z"/>
-        </svg>
-      </a>
+  </section>  <footer>
+    <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
+    <p>Instagram: @kafemoderna</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/kafemoderna" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/kafemoderna" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank" title="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
     </div>
-    <div class="mb-3">
-      <a href="https://www.google.com/maps/place/Kage+Coffee" target="_blank" class="flex justify-center items-center gap-2 text-sm hover:underline">
-        <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/>
-        </svg>
-        Lihat kami di Google Maps - Rating 4.8/5
-      </a>
-    </div>
-    <p>&copy; 2025 Kage Coffee. All rights reserved.</p>
-  </footer>
-
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20memesan" target="_blank"
-     class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 z-50">
-    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M17.5 14.5c-.29 0-.58-.02-.86-.06-.23-.03-.51.07-.68.22l-1.23 1.13a9.77 9.77 0 0 1-4.76-4.77l1.13-1.23a.76.76 0 0 0 .22-.68c-.04-.28-.06-.57-.06-.86A1.5 1.5 0 0 0 9.75 7H7.5A1.5 1.5 0 0 0 6 8.5C6 13.19 10.81 18 15.5 18a1.5 1.5 0 0 0 1.5-1.5V15a1.5 1.5 0 0 0-1.5-1.5z"/>
-    </svg>
-  </a>
-
-  <!-- Script -->
-  <script>
+    <p><a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank">Dukung & beri ulasan kami di Google Maps</a></p>
+  </footer>  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
     function filterMenu(category) {
       const items = document.querySelectorAll('.menu-item');
       items.forEach(item => {
-        item.style.display = (category === 'all' || item.classList.contains(category)) ? '' : 'none';
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all' || itemCat.includes(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
       });
-
-      // Highlight active button
-      const buttons = document.querySelectorAll('button[data-category]');
-      buttons.forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
-      const activeBtn = document.querySelector(`button[data-category="${category}"]`);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-blue-500', 'text-white');
-      }
     }
-
-    function openModal(title, desc) {
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalDesc').innerText = desc;
-      document.getElementById('modal').classList.remove('hidden');
+    function submitForm(event) {
+      event.preventDefault();
+      alert('Pesanan Anda telah dikirim!');
     }
-
-    function closeModal() {
-      document.getElementById('modal').classList.add('hidden');
-    }
-  </script>
-</body>
+  </script></body>
 </html>
