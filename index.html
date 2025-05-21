@@ -1,151 +1,153 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Menu Kafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* CSS seperti sebelumnya tetap sama */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background-color: #f9f9f9; color: #333; padding: 20px; transition: background-color 0.3s, color 0.3s; }
-    body.dark-mode { background-color: #222; color: #eee; }
-    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; }
-    nav a { margin-left: 20px; text-decoration: none; color: inherit; font-weight: 500; }
-    .filters { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .filters button { border: 1px solid #ccc; background: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
-    .filters button.active, .filters button:hover { background-color: #333; color: #fff; border-color: #333; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .menu-item { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 15px; text-align: center; animation: fadeInUp 0.5s ease forwards; opacity: 0; transform: translateY(10px); }
-    .menu-item:hover { transform: scale(1.03); }
-    .dark-mode .menu-item { background: #333; }
-    .menu-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
-    .menu-item h3 { margin: 10px 0 5px; }
-    .menu-item p { font-size: 14px; color: #666; margin-bottom: 8px; }
-    .dark-mode .menu-item p { color: #ccc; }
-    .price { font-weight: bold; margin-bottom: 10px; }
-    .btn-order { background-color: #333; color: #fff; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; }
-    footer { text-align: center; margin-top: 50px; font-size: 14px; color: #777; }
-    .dark-mode footer { color: #aaa; }
-    .social-icons a { margin: 0 8px; text-decoration: none; font-size: 20px; color: #555; transition: transform 0.3s, color 0.3s; }
-    .social-icons a:hover { transform: scale(1.2); color: #f5a623; }
-    .dark-mode .social-icons a { color: #ccc; }
-    @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f5f3ee;
+      color: #333;
+    }
+    header {
+      background-color: #e0d6c3;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    .menu-section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .category {
+      margin-top: 40px;
+    }
+    .category h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px dashed #ccc;
+      padding: 20px 0;
+    }
+    .menu-item img {
+      width: 120px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .menu-info {
+      flex-grow: 1;
+      padding-left: 20px;
+    }
+    .menu-info h3 {
+      margin: 0;
+      font-size: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+    .menu-info p {
+      margin: 8px 0;
+      font-size: 14px;
+      color: #555;
+    }
+    .price-rating {
+      text-align: right;
+      font-size: 14px;
+    }
+    .cta {
+      text-align: center;
+      padding: 40px;
+    }
+    .cta button {
+      background-color: #d4b49b;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      border-radius: 5px;
+      color: #fff;
+    }
+    .cta button:hover {
+      background-color: #b2957a;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>KAFE MODERNA</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tentang</a>
-      <a href="#">Menu</a>
-      <a href="#">Pesan Sekarang</a>
-      <button class="dark-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
-    </nav>
+    <h1>Menu Kami</h1>
+    <p>Rasa klasik, gaya kekinian</p>
   </header>
-
-  <main>
-    <section class="filters">
-      <button class="active" onclick="filterMenu('all', event)">Semua</button>
-      <button onclick="filterMenu('makanan', event)">Makanan</button>
-      <button onclick="filterMenu('minuman', event)">Minuman</button>
-      <button onclick="filterMenu('kopi', event)">Kopi</button>
-      <button onclick="filterMenu('nonkopi', event)">Non Kopi</button>
-      <button onclick="filterMenu('latte', event)">Aneka Latte</button>
-    </section>
-
-    <section class="menu-grid" id="menuGrid">
-      <!-- Makanan -->
-      <div class="menu-item" data-category="makanan">
-        <img src="https://source.unsplash.com/300x200/?fried-rice" alt="Nasi Goreng Jawa">
-        <h3>Nasi Goreng Jawa</h3>
-        <p>Nasi goreng khas dengan rempah tradisional</p>
-        <div class="price">Rp25.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-
-      <div class="menu-item" data-category="makanan">
-        <img src="https://source.unsplash.com/300x200/?hongkong-fried-rice" alt="Nasi Goreng Hongkong">
-        <h3>Nasi Goreng Hongkong</h3>
-        <p>Nasi goreng dengan gaya oriental khas Hongkong</p>
-        <div class="price">Rp26.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-
-      <div class="menu-item" data-category="makanan">
-        <img src="https://source.unsplash.com/300x200/?coffee-fried-rice" alt="Nasi Goreng Kopi">
-        <h3>Nasi Goreng Kopi</h3>
-        <p>Nasi goreng dengan sentuhan rasa kopi</p>
-        <div class="price">Rp28.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-
-      <!-- Minuman - Kopi -->
-      <div class="menu-item" data-category="minuman kopi">
-        <img src="https://source.unsplash.com/300x200/?espresso" alt="Espresso">
-        <h3>Espresso</h3>
-        <p>Single shot kopi hitam pekat</p>
-        <div class="price">Rp20.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-
-      <!-- Minuman - Aneka Latte -->
-      <div class="menu-item" data-category="minuman latte">
-        <img src="https://source.unsplash.com/300x200/?caramel-latte" alt="Caramel Latte">
-        <h3>Caramel Latte</h3>
-        <p>Latte dengan sirup karamel manis</p>
-        <div class="price">Rp26.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-
-      <!-- Minuman - Non Kopi -->
-      <div class="menu-item" data-category="minuman nonkopi">
-        <img src="https://source.unsplash.com/300x200/?matcha-latte" alt="Matcha Latte">
-        <h3>Matcha Latte</h3>
-        <p>Teh hijau Jepang dengan susu segar</p>
-        <div class="price">Rp26.000</div>
-        <button class="btn-order">Pesan Sekarang</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
-    <p>Instagram: @kafemoderna</p>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-whatsapp"></i></a>
-      <a href="#"><i class="fas fa-map-marker-alt"></i></a>
+  <div class="menu-section"><div class="category">
+  <h2>Kopi Klasik</h2>
+  <div class="menu-item">
+    <img src="https://via.placeholder.com/120x120.png?text=Kopi+Susu" alt="Kopi Susu Tempo Dulu">
+    <div class="menu-info">
+      <h3>Kopi Susu Tempo Dulu</h3>
+      <p>Kopi robusta lokal dan susu segar, manis dengan sirup karamel khas kami.</p>
     </div>
-  </footer>
+    <div class="price-rating">
+      <p>Rp 28.000</p>
+      <p>★★★★☆</p>
+    </div>
+  </div>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
-    window.onload = () => {
-      if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-      }
-    };
+  <div class="menu-item">
+    <img src="https://via.placeholder.com/120x120.png?text=Espresso" alt="Espresso Rempah">
+    <div class="menu-info">
+      <h3>Espresso Rempah</h3>
+      <p>Kopi pekat dengan aroma kayu manis dan pala yang khas.</p>
+    </div>
+    <div class="price-rating">
+      <p>Rp 26.000</p>
+      <p>★★★★☆</p>
+    </div>
+  </div>
+</div>
 
-    function filterMenu(category, event) {
-      document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
-      if (event) event.target.classList.add('active');
-      const items = document.querySelectorAll('.menu-item');
-      items.forEach(item => {
-        const itemCat = item.getAttribute('data-category');
-        if (category === 'all' || itemCat.includes(category)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-  </script>
+<div class="category">
+  <h2>Non-Kopi</h2>
+  <div class="menu-item">
+    <img src="https://via.placeholder.com/120x120.png?text=Rosella" alt="Teh Rosella Citrus">
+    <div class="menu-info">
+      <h3>Teh Rosella Citrus</h3>
+      <p>Minuman herbal segar dengan aroma lemon dan rosella kering.</p>
+    </div>
+    <div class="price-rating">
+      <p>Rp 22.000</p>
+      <p>★★★☆☆</p>
+    </div>
+  </div>
+</div>
+
+<div class="category">
+  <h2>Makanan Ringan</h2>
+  <div class="menu-item">
+    <img src="https://via.placeholder.com/120x120.png?text=Muffin" alt="Banana Muffin Rempah">
+    <div class="menu-info">
+      <h3>Banana Muffin Rempah</h3>
+      <p>Muffin pisang manis dengan aroma kayu manis dan tekstur lembut.</p>
+    </div>
+    <div class="price-rating">
+      <p>Rp 20.000</p>
+      <p>★★★★☆</p>
+    </div>
+  </div>
+</div>
+
+  </div>  <div class="cta">
+    <button>Pesan Sekarang</button>
+  </div>
 </body>
-</html>
+        </html>
