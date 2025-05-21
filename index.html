@@ -6,9 +6,7 @@
   <title>Kage Coffee</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-    }
+    tailwind.config = { darkMode: 'class' }
   </script>
   <style>
     @keyframes bounce {
@@ -36,25 +34,25 @@
   <!-- Filter Menu -->
   <section class="p-4">
     <div class="mb-4 text-center">
-      <button onclick="filterMenu('all')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Semua</button>
-      <button onclick="filterMenu('coffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Kopi</button>
-      <button onclick="filterMenu('noncoffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Non-Kopi</button>
-      <button onclick="filterMenu('snack')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Camilan</button>
+      <button data-category="all" onclick="filterMenu('all')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Semua</button>
+      <button data-category="coffee" onclick="filterMenu('coffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Kopi</button>
+      <button data-category="noncoffee" onclick="filterMenu('noncoffee')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Non-Kopi</button>
+      <button data-category="snack" onclick="filterMenu('snack')" class="px-3 py-1 mx-1 rounded bg-gray-200 dark:bg-gray-700">Camilan</button>
     </div>
+
     <div id="menu" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Contoh item menu -->
       <div class="menu-item coffee bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-        <img src="https://imgur.com/a/wIEhAtl" alt="mie goreng" class="rounded mb-2">
-        <h3 class="text-lg font-semibold">mie goreng</h3>
+        <img src="https://imgur.com/a/wv2rCEF" alt="Latte" class="rounded mb-2">
+        <h3 class="text-lg font-semibold">tempek</h3>
         <p class="text-sm text-gray-600 dark:text-gray-400">Espresso dengan susu steam lembut</p>
-        <p class="mt-2 text-yellow-500">Rating: 4.8/5</p>
+        <p class="text-sm font-medium mt-1">Rp 28.000</p>
+        <div class="flex items-center mt-2 text-yellow-400">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.562-.955L10 0l2.95 5.955 6.562.955-4.756 4.635 1.122 6.545z"/></svg>
+          <span class="ml-1 text-sm">4.8</span>
+        </div>
         <button onclick="openModal('Caffe Latte', 'Espresso dengan susu steam lembut')"
           class="mt-2 text-sm bg-blue-500 text-white px-4 py-1 rounded">Detail</button>
-        <div class="menu-item food bg-white p-4 rounded shadow">
-  <img src="mie-goreng.jpg" alt="Ramen Spesial" class="rounded mb-2">
-  <h3 class="text-lg font-semibold">Ramen Spesial</h3>
-  <p class="text-sm">Ramen kuah pedas dengan topping lengkap seperti ham, bakso, kol, dan telur puyuh.</p>
-  <p class="text-yellow-500 mt-1">★★★★★</p>
-        </div>
       </div>
     </div>
   </section>
@@ -71,17 +69,17 @@
   <!-- Footer -->
   <footer class="bg-gray-100 dark:bg-gray-800 mt-12 py-8 text-center text-sm text-gray-600 dark:text-gray-400">
     <div class="flex justify-center gap-6 mb-4">
-      <a href="https://instagram.com/kagecoffee" target="_blank" aria-label="Instagram" class="hover:text-pink-500">
+      <a href="https://instagram.com/kagecoffee" target="_blank" class="hover:text-pink-500" aria-label="Instagram">
         <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
           <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm4.75-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
         </svg>
       </a>
-      <a href="https://facebook.com/kagecoffee" target="_blank" aria-label="Facebook" class="hover:text-blue-600">
+      <a href="https://facebook.com/kagecoffee" target="_blank" class="hover:text-blue-600" aria-label="Facebook">
         <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
           <path d="M13.5 22v-8h2.4l.3-3H13.5v-1.8c0-.9.3-1.5 1.5-1.5H16V5.2c-.3 0-1.2-.2-2.3-.2-2.5 0-4.2 1.5-4.2 4.3V11H7v3h2.9v8h3.6z"/>
         </svg>
       </a>
-      <a href="https://tiktok.com/@kagecoffee" target="_blank" aria-label="TikTok" class="hover:text-black dark:hover:text-white">
+      <a href="https://tiktok.com/@kagecoffee" target="_blank" class="hover:text-black dark:hover:text-white" aria-label="TikTok">
         <svg class="w-6 h-6 inline" fill="currentColor" viewBox="0 0 24 24">
           <path d="M16 8.29a5.94 5.94 0 0 0 3.5 1.14V6.42a4.41 4.41 0 0 1-2.5-.77 4.37 4.37 0 0 1-1.5-2.38H13.5v13.07a2.6 2.6 0 1 1-2.57-2.98 2.73 2.73 0 0 1 1.07.24V9.16a5.91 5.91 0 0 0-1.07-.09 5.99 5.99 0 1 0 5.57 8.28V8.29z"/>
         </svg>
@@ -100,7 +98,7 @@
 
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20memesan" target="_blank"
-    class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 z-50">
+     class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 z-50">
     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
       <path d="M17.5 14.5c-.29 0-.58-.02-.86-.06-.23-.03-.51.07-.68.22l-1.23 1.13a9.77 9.77 0 0 1-4.76-4.77l1.13-1.23a.76.76 0 0 0 .22-.68c-.04-.28-.06-.57-.06-.86A1.5 1.5 0 0 0 9.75 7H7.5A1.5 1.5 0 0 0 6 8.5C6 13.19 10.81 18 15.5 18a1.5 1.5 0 0 0 1.5-1.5V15a1.5 1.5 0 0 0-1.5-1.5z"/>
     </svg>
@@ -111,12 +109,16 @@
     function filterMenu(category) {
       const items = document.querySelectorAll('.menu-item');
       items.forEach(item => {
-        if (category === 'all' || item.classList.contains(category)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
+        item.style.display = (category === 'all' || item.classList.contains(category)) ? '' : 'none';
       });
+
+      // Highlight active button
+      const buttons = document.querySelectorAll('button[data-category]');
+      buttons.forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
+      const activeBtn = document.querySelector(`button[data-category="${category}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-blue-500', 'text-white');
+      }
     }
 
     function openModal(title, desc) {
