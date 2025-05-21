@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menu Kafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* CSS seperti sebelumnya tetap sama */
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
     body { background-color: #f9f9f9; color: #333; padding: 20px; transition: background-color 0.3s, color 0.3s; }
     body.dark-mode { background-color: #222; color: #eee; }
@@ -16,50 +17,31 @@
     .filters button { border: 1px solid #ccc; background: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.3s; }
     .filters button.active, .filters button:hover { background-color: #333; color: #fff; border-color: #333; }
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .menu-item {
-      background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 15px;
-      text-align: center; animation: fadeInUp 0.5s ease forwards; opacity: 0; transform: translateY(10px);
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    }
+    .menu-item { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 15px; text-align: center; animation: fadeInUp 0.5s ease forwards; opacity: 0; transform: translateY(10px); }
     .menu-item:hover { transform: scale(1.03); }
     .dark-mode .menu-item { background: #333; }
     .menu-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
     .menu-item h3 { margin: 10px 0 5px; }
     .menu-item p { font-size: 14px; color: #666; margin-bottom: 8px; }
     .dark-mode .menu-item p { color: #ccc; }
-    .rating { color: #f5a623; margin-bottom: 8px; }
     .price { font-weight: bold; margin-bottom: 10px; }
     .btn-order { background-color: #333; color: #fff; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; }
-    .highlight-section { background: #eee; padding: 40px 20px; border-radius: 12px; margin: 40px 0; transition: background-color 0.3s, color 0.3s; }
-    .dark-mode .highlight-section { background: #444; }
-    .highlight-section h2 { text-align: center; margin-bottom: 30px; }
-    .cta { text-align: center; margin-top: 40px; }
-    .cta button { padding: 14px 28px; font-size: 16px; background-color: #333; color: #fff; border: none; border-radius: 30px; cursor: pointer; }
     footer { text-align: center; margin-top: 50px; font-size: 14px; color: #777; }
     .dark-mode footer { color: #aaa; }
-    .social-icons { margin-top: 10px; animation: fadeIn 1s ease-in; }
     .social-icons a { margin: 0 8px; text-decoration: none; font-size: 20px; color: #555; transition: transform 0.3s, color 0.3s; }
     .social-icons a:hover { transform: scale(1.2); color: #f5a623; }
     .dark-mode .social-icons a { color: #ccc; }
     @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .form-section { background: #fff; border-radius: 12px; padding: 20px; margin: 40px auto; max-width: 500px; transition: background-color 0.3s, color 0.3s; }
-    .dark-mode .form-section { background: #333; }
-    .form-section h2 { text-align: center; margin-bottom: 20px; }
-    .form-section label { font-size: 14px; margin-bottom: 5px; display: block; }
-    .form-section input, .form-section textarea {
-      width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px;
-    }
-    .form-section button { padding: 10px 20px; background: #333; color: #fff; border: none; border-radius: 20px; cursor: pointer; }
-    .dark-toggle { cursor: pointer; background: none; border: none; color: #333; font-size: 14px; margin-left: 20px; }
-    .dark-mode .dark-toggle { color: #eee; }
   </style>
 </head>
 <body>
   <header>
-    <h1>KEDAI KOPI EWOK</h1>
+    <h1>KAFE MODERNA</h1>
     <nav>
-      <a href="#">#Kediri_Melek_Kopi</a>
+      <a href="#">Home</a>
+      <a href="#">Tentang</a>
+      <a href="#">Menu</a>
+      <a href="#">Pesan Sekarang</a>
       <button class="dark-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
     </nav>
   </header>
@@ -70,105 +52,99 @@
       <button onclick="filterMenu('makanan', event)">Makanan</button>
       <button onclick="filterMenu('minuman', event)">Minuman</button>
       <button onclick="filterMenu('kopi', event)">Kopi</button>
-      <button onclick="filterMenu('dessert', event)">Dessert</button>
-      <button onclick="filterMenu('signature', event)">Signature</button>
+      <button onclick="filterMenu('nonkopi', event)">Non Kopi</button>
+      <button onclick="filterMenu('latte', event)">Aneka Latte</button>
     </section>
 
     <section class="menu-grid" id="menuGrid">
-      <div class="menu-item" data-category='["minuman","kopi"]'>
-        <img src="images/mie-goreng.jpg" alt="Matcha Latte - Minuman teh hijau Jepang">
-        <h3>Matcha Latte</h3>
-        <p>Teh hijau Jepang dengan susu segar dan foam lembut.</p>
-        <div class="rating">★★★★★</div>
-        <div class="price">Rp32.000</div>
+      <!-- Makanan -->
+      <div class="menu-item" data-category="makanan">
+        <img src="https://source.unsplash.com/300x200/?fried-rice" alt="Nasi Goreng Jawa">
+        <h3>Nasi Goreng Jawa</h3>
+        <p>Nasi goreng khas dengan rempah tradisional</p>
+        <div class="price">Rp25.000</div>
         <button class="btn-order">Pesan Sekarang</button>
       </div>
-      <div class="menu-item" data-category='["kopi"]'>
-        <img src="https://source.unsplash.com/300x200/?coffee" alt="Espresso - Kopi hitam pekat">
+
+      <div class="menu-item" data-category="makanan">
+        <img src="https://source.unsplash.com/300x200/?hongkong-fried-rice" alt="Nasi Goreng Hongkong">
+        <h3>Nasi Goreng Hongkong</h3>
+        <p>Nasi goreng dengan gaya oriental khas Hongkong</p>
+        <div class="price">Rp26.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
+      </div>
+
+      <div class="menu-item" data-category="makanan">
+        <img src="https://source.unsplash.com/300x200/?coffee-fried-rice" alt="Nasi Goreng Kopi">
+        <h3>Nasi Goreng Kopi</h3>
+        <p>Nasi goreng dengan sentuhan rasa kopi</p>
+        <div class="price">Rp28.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
+      </div>
+
+      <!-- Minuman - Kopi -->
+      <div class="menu-item" data-category="minuman kopi">
+        <img src="https://source.unsplash.com/300x200/?espresso" alt="Espresso">
         <h3>Espresso</h3>
-        <p>Single shot kopi pekat pilihan.</p>
-        <div class="rating">★★★★☆</div>
+        <p>Single shot kopi hitam pekat</p>
         <div class="price">Rp20.000</div>
         <button class="btn-order">Pesan Sekarang</button>
       </div>
-    </section>
 
-    <section class="highlight-section">
-      <h2>Menu Unggulan</h2>
-      <div class="menu-grid">
-        <div class="menu-item" data-category='["dessert","signature"]'>
-          <img src="https://source.unsplash.com/300x200/?cake" alt="Red Velvet Cake - Kue lembut berwarna merah">
-          <h3>Red Velvet Cake</h3>
-          <p>Lembut, manis, dan penuh rasa cinta.</p>
-          <div class="rating">★★★★★</div>
-          <div class="price">Rp27.000</div>
-          <button class="btn-order">Pesan Sekarang</button>
-        </div>
+      <!-- Minuman - Aneka Latte -->
+      <div class="menu-item" data-category="minuman latte">
+        <img src="https://source.unsplash.com/300x200/?caramel-latte" alt="Caramel Latte">
+        <h3>Caramel Latte</h3>
+        <p>Latte dengan sirup karamel manis</p>
+        <div class="price">Rp26.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
       </div>
-    </section>
 
-    <section class="cta">
-      <h2>Sudah siap memesan?</h2>
-      <button onclick="document.querySelector('#formSection').scrollIntoView({ behavior: 'smooth' });">Pesan Sekarang</button>
-      <div style="margin-top: 20px;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://kafemoderna.id/pesan&size=150x150" alt="QR Code untuk memesan via HP" style="border-radius: 12px;">
-        <p>Scan QR ini untuk langsung memesan dari ponsel Anda</p>
+      <!-- Minuman - Non Kopi -->
+      <div class="menu-item" data-category="minuman nonkopi">
+        <img src="https://source.unsplash.com/300x200/?matcha-latte" alt="Matcha Latte">
+        <h3>Matcha Latte</h3>
+        <p>Teh hijau Jepang dengan susu segar</p>
+        <div class="price">Rp26.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Kedai kopi ewok | Jl. Kawi No.03 Mojoroto Kota Kediri | 11.00- 00.00</p>
-    <p>Instagram: @kedaikopiewok</p>
+    <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
+    <p>Instagram: @kafemoderna</p>
     <div class="social-icons">
-      <a href="https://www.instagram.com/kafemoderna" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/kafemoderna" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i></a>
     </div>
-    <p><a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank">Dukung & beri ulasan kami di Google Maps</a></p>
   </footer>
 
   <script>
-    // Dark mode toggle
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     }
-
     window.onload = () => {
       if (localStorage.getItem('darkMode') === 'true') {
         document.body.classList.add('dark-mode');
       }
-
-      // Delay animasi per item
-      const items = document.querySelectorAll('.menu-item');
-      items.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.1}s`;
-      });
     };
 
-    // Menu filter
     function filterMenu(category, event) {
       document.querySelectorAll('.filters button').forEach(btn => btn.classList.remove('active'));
       if (event) event.target.classList.add('active');
       const items = document.querySelectorAll('.menu-item');
       items.forEach(item => {
-        const cat = JSON.parse(item.getAttribute('data-category'));
-        item.style.display = (category === 'all' || cat.includes(category)) ? 'block' : 'none';
+        const itemCat = item.getAttribute('data-category');
+        if (category === 'all' || itemCat.includes(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
       });
-    }
-
-    // Form
-    function submitForm(event) {
-      event.preventDefault();
-      const nama = document.getElementById('nama').value.trim();
-      const menu = document.getElementById('menu').value.trim();
-      if (!nama || !menu) {
-        alert('Mohon isi nama dan menu yang dipesan.');
-        return;
-      }
-      alert(`Terima kasih ${nama}, pesanan untuk ${menu} telah dikirim!`);
     }
   </script>
 </body>
