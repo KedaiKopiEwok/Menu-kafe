@@ -1,150 +1,142 @@
 <!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Kafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Kafe - Desktop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body { background-color: #f9f9f9; color: #333; padding: 20px; transition: background-color 0.3s, color 0.3s; }
-    body.dark-mode { background-color: #222; color: #eee; }
+    body { background-color: #f9f9f9; color: #333; padding: 20px; }
+    .container { max-width: 1200px; margin: auto; }
     header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     nav a { margin-left: 20px; text-decoration: none; color: inherit; font-weight: 500; }
-    .filters { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
-    .filters button { border: 1px solid #ccc; background: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .menu-item { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 15px; text-align: center; transition: transform 0.3s; }
+    .filters { margin: 30px 0 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .filters button { border: 1px solid #ccc; background: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+    .menu-item { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 15px; text-align: center; transition: transform 0.3s; }
     .menu-item:hover { transform: scale(1.03); }
-    .dark-mode .menu-item { background: #333; }
-    .menu-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; }
+    .menu-item img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
     .menu-item h3 { margin: 10px 0 5px; }
     .menu-item p { font-size: 14px; color: #666; margin-bottom: 8px; }
-    .dark-mode .menu-item p { color: #ccc; }
     .rating { color: #f5a623; margin-bottom: 8px; }
     .price { font-weight: bold; margin-bottom: 10px; }
     .btn-order { background-color: #333; color: #fff; padding: 8px 16px; border: none; border-radius: 20px; cursor: pointer; }
-    .highlight-section { background: #eee; padding: 40px 20px; border-radius: 12px; margin: 40px 0; }
-    .dark-mode .highlight-section { background: #444; }
+    .highlight-section { background: #eee; padding: 40px 20px; border-radius: 12px; margin: 60px 0; }
     .highlight-section h2 { text-align: center; margin-bottom: 30px; }
-    .cta { text-align: center; margin-top: 40px; }
-    .cta button { padding: 14px 28px; font-size: 16px; background-color: #333; color: #fff; border: none; border-radius: 30px; cursor: pointer; }
-    footer { text-align: center; margin-top: 50px; font-size: 14px; color: #777; }
-    .dark-mode footer { color: #aaa; }
-    .social-icons { margin-top: 10px; animation: fadeIn 1s ease-in; }
-    .social-icons a { margin: 0 8px; text-decoration: none; font-size: 20px; color: #555; transition: transform 0.3s, color 0.3s; }
-    .social-icons a:hover { transform: scale(1.2); color: #f5a623; }
-    .dark-mode .social-icons a { color: #ccc; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .form-section { background: #fff; border-radius: 12px; padding: 20px; margin: 40px auto; max-width: 500px; }
-    .dark-mode .form-section { background: #333; }
+    .form-section { background: #fff; border-radius: 12px; padding: 30px; margin: 60px 0; max-width: 600px; margin-left: auto; margin-right: auto; }
     .form-section h2 { text-align: center; margin-bottom: 20px; }
-    .form-section input, .form-section textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; }
-    .form-section button { padding: 10px 20px; background: #333; color: #fff; border: none; border-radius: 20px; cursor: pointer; }
-    .dark-toggle { cursor: pointer; background: none; border: none; color: #333; font-size: 14px; margin-left: 20px; }
-    .dark-mode .dark-toggle { color: #eee; }
+    .form-section input, .form-section textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; }
+    .form-section button { padding: 10px 24px; background: #333; color: #fff; border: none; border-radius: 20px; cursor: pointer; }
+    .cta { text-align: center; margin: 60px 0; }
+    .cta button { padding: 16px 32px; font-size: 16px; background-color: #333; color: #fff; border: none; border-radius: 30px; cursor: pointer; }
+    .qr-section { display: flex; justify-content: center; gap: 50px; margin-top: 40px; flex-wrap: wrap; }
+    .qr-section div { text-align: center; }
+    .qr-section img { border-radius: 12px; width: 150px; height: 150px; }
+    footer { text-align: center; margin-top: 80px; font-size: 14px; color: #777; }
+    .social-icons { margin-top: 10px; }
+    .social-icons a { margin: 0 8px; text-decoration: none; font-size: 20px; color: #555; transition: transform 0.3s; }
+    .social-icons a:hover { transform: scale(1.2); color: #f5a623; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>KAFE MODERNA</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Tentang</a>
-      <a href="#">Menu</a>
-      <a href="#">Pesan Sekarang</a>
-      <button class="dark-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
-    </nav>
-  </header>
+  <div class="container">
+    <header>
+      <h1>KAFE MODERNA</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Tentang</a>
+        <a href="#">Menu</a>
+        <a href="#">Pesan</a>
+      </nav>
+    </header>
 
-  <section class="filters">
-    <button onclick="filterMenu('all')">Semua</button>
-    <button onclick="filterMenu('makanan')">Makanan</button>
-    <button onclick="filterMenu('minuman')">Minuman</button>
-    <button onclick="filterMenu('kopi')">Kopi</button>
-    <button onclick="filterMenu('dessert')">Dessert</button>
-    <button onclick="filterMenu('signature')">Signature</button>
-  </section>
+    <section class="filters">
+      <button onclick="filterMenu('all')">Semua</button>
+      <button onclick="filterMenu('makanan')">Makanan</button>
+      <button onclick="filterMenu('minuman')">Minuman</button>
+      <button onclick="filterMenu('kopi')">Kopi</button>
+      <button onclick="filterMenu('dessert')">Dessert</button>
+      <button onclick="filterMenu('signature')">Signature</button>
+    </section>
 
-  <section class="menu-grid" id="menuGrid">
-    <div class="menu-item" data-category="minuman kopi">
-      <img src="https://source.unsplash.com/300x200/?matcha" alt="Matcha Latte">
-      <h3>Matcha Latte</h3>
-      <p>Teh hijau Jepang dengan susu segar dan foam lembut.</p>
-      <div class="rating">★★★★★</div>
-      <div class="price">Rp32.000</div>
-      <button class="btn-order">Pesan Sekarang</button>
-    </div>
-    <div class="menu-item" data-category="kopi">
-      <img src="https://source.unsplash.com/300x200/?coffee" alt="Espresso">
-      <h3>Espresso</h3>
-      <p>Single shot kopi pekat pilihan.</p>
-      <div class="rating">★★★★☆</div>
-      <div class="price">Rp20.000</div>
-      <button class="btn-order">Pesan Sekarang</button>
-    </div>
-  </section>
-
-  <section class="highlight-section">
-    <h2>Menu Unggulan</h2>
-    <div class="menu-grid">
-      <div class="menu-item" data-category="dessert signature">
-        <img src="https://source.unsplash.com/300x200/?cake" alt="Red Velvet Cake">
-        <h3>Red Velvet Cake</h3>
-        <p>Lembut, manis, dan penuh rasa cinta.</p>
+    <section class="menu-grid" id="menuGrid">
+      <div class="menu-item" data-category="minuman kopi">
+        <img src="https://source.unsplash.com/300x200/?matcha" alt="Matcha Latte">
+        <h3>Matcha Latte</h3>
+        <p>Teh hijau Jepang dengan susu segar dan foam lembut.</p>
         <div class="rating">★★★★★</div>
-        <div class="price">Rp27.000</div>
+        <div class="price">Rp32.000</div>
         <button class="btn-order">Pesan Sekarang</button>
       </div>
-    </div>
-  </section>
-
-  <section class="form-section">
-    <h2>Form Pemesanan</h2>
-    <form onsubmit="submitForm(event)">
-      <input type="text" name="nama" placeholder="Nama Anda" required>
-      <input type="text" name="menu" placeholder="Menu yang dipesan" required>
-      <textarea name="catatan" placeholder="Catatan tambahan..."></textarea>
-      <button type="submit">Kirim Pesanan</button>
-    </form>
-  </section>
-
-  <section class="cta">
-    <h2>Sudah siap memesan?</h2>
-    <button>Pesan Sekarang</button>
-    <div style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; justify-items: center;">
-      <div style="text-align: center;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://shopee.co.id/universalkafe&size=150x150" alt="QR ShopeeFood" style="border-radius: 12px;">
-        <p>ShopeeFood</p>
+      <div class="menu-item" data-category="kopi">
+        <img src="https://source.unsplash.com/300x200/?coffee" alt="Espresso">
+        <h3>Espresso</h3>
+        <p>Single shot kopi pekat pilihan.</p>
+        <div class="rating">★★★★☆</div>
+        <div class="price">Rp20.000</div>
+        <button class="btn-order">Pesan Sekarang</button>
       </div>
-      <div style="text-align: center;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://food.grab.com/id/id/restaurant/kafe-moderna&size=150x150" alt="QR GrabFood" style="border-radius: 12px;">
-        <p>GrabFood</p>
-      </div>
-      <div style="text-align: center;">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://gofood.link/kafemoderna&size=150x150" alt="QR GoFood" style="border-radius: 12px;">
-        <p>GoFood</p>
-      </div>
-    </div>
-    <p style="margin-top: 20px;">Scan salah satu QR untuk langsung memesan dari layanan favoritmu!</p>
-  </section>
+    </section>
 
-  <footer>
-    <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
-    <p>Instagram: @kafemoderna</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/kafemoderna" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/kafemoderna" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank" title="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
-    </div>
-    <p><a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank">Dukung & beri ulasan kami di Google Maps</a></p>
-  </footer>
+    <section class="highlight-section">
+      <h2>Menu Unggulan</h2>
+      <div class="menu-grid">
+        <div class="menu-item" data-category="dessert signature">
+          <img src="https://source.unsplash.com/300x200/?cake" alt="Red Velvet Cake">
+          <h3>Red Velvet Cake</h3>
+          <p>Lembut, manis, dan penuh rasa cinta.</p>
+          <div class="rating">★★★★★</div>
+          <div class="price">Rp27.000</div>
+          <button class="btn-order">Pesan Sekarang</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Form Pemesanan</h2>
+      <form onsubmit="submitForm(event)">
+        <input type="text" name="nama" placeholder="Nama Anda" required>
+        <input type="text" name="menu" placeholder="Menu yang dipesan" required>
+        <textarea name="catatan" placeholder="Catatan tambahan..."></textarea>
+        <button type="submit">Kirim Pesanan</button>
+      </form>
+    </section>
+
+    <section class="cta">
+      <h2>Sudah siap memesan?</h2>
+      <button>Pesan Sekarang</button>
+      <div class="qr-section">
+        <div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://shopee.co.id/universalkafe&size=150x150" alt="ShopeeFood">
+          <p>ShopeeFood</p>
+        </div>
+        <div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://food.grab.com/id/id/restaurant/kafe-moderna&size=150x150" alt="GrabFood">
+          <p>GrabFood</p>
+        </div>
+        <div>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://gofood.link/kafemoderna&size=150x150" alt="GoFood">
+          <p>GoFood</p>
+        </div>
+      </div>
+      <p style="margin-top: 20px;">Scan QR untuk langsung memesan dari aplikasi favoritmu!</p>
+    </section>
+
+    <footer>
+      <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
+      <p>Instagram: @kafemoderna</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/kafemoderna" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/kafemoderna" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/6281234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
+      </div>
+      <p><a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank">Beri kami ulasan di Google Maps</a></p>
+    </footer>
+  </div>
 
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
     function filterMenu(category) {
       const items = document.querySelectorAll('.menu-item');
       items.forEach(item => {
@@ -156,9 +148,10 @@
         }
       });
     }
-    function submitForm(event) {
-      event.preventDefault();
-      alert('Pesanan Anda telah dikirim!');
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert("Pesanan Anda telah dikirim!");
     }
   </script>
 </body>
