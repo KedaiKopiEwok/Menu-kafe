@@ -1,7 +1,8 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024">
   <title>Menu Kafe</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,14 +56,18 @@
       <a href="#">Pesan Sekarang</a>
       <button class="dark-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
     </nav>
-  </header>  <section class="filters">
+  </header>
+
+  <section class="filters">
     <button onclick="filterMenu('all')">Semua</button>
     <button onclick="filterMenu('makanan')">Makanan</button>
     <button onclick="filterMenu('minuman')">Minuman</button>
     <button onclick="filterMenu('kopi')">Kopi</button>
     <button onclick="filterMenu('dessert')">Dessert</button>
     <button onclick="filterMenu('signature')">Signature</button>
-  </section>  <section class="menu-grid" id="menuGrid">
+  </section>
+
+  <section class="menu-grid" id="menuGrid">
     <div class="menu-item" data-category="minuman kopi">
       <img src="https://source.unsplash.com/300x200/?matcha" alt="Matcha Latte">
       <h3>Matcha Latte</h3>
@@ -79,7 +84,9 @@
       <div class="price">Rp20.000</div>
       <button class="btn-order">Pesan Sekarang</button>
     </div>
-  </section>  <section class="highlight-section">
+  </section>
+
+  <section class="highlight-section">
     <h2>Menu Unggulan</h2>
     <div class="menu-grid">
       <div class="menu-item" data-category="dessert signature">
@@ -91,7 +98,9 @@
         <button class="btn-order">Pesan Sekarang</button>
       </div>
     </div>
-  </section>  <section class="form-section">
+  </section>
+
+  <section class="form-section">
     <h2>Form Pemesanan</h2>
     <form onsubmit="submitForm(event)">
       <input type="text" name="nama" placeholder="Nama Anda" required>
@@ -99,14 +108,18 @@
       <textarea name="catatan" placeholder="Catatan tambahan..."></textarea>
       <button type="submit">Kirim Pesanan</button>
     </form>
-  </section>  <section class="cta">
+  </section>
+
+  <section class="cta">
     <h2>Sudah siap memesan?</h2>
     <button>Pesan Sekarang</button>
     <div style="margin-top: 20px;">
       <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://kafemoderna.id/pesan&size=150x150" alt="QR Code untuk Pesan" style="border-radius: 12px;">
       <p>Scan QR ini untuk langsung memesan dari ponsel Anda</p>
     </div>
-  </section>  <footer>
+  </section>
+
+  <footer>
     <p>Kafe Moderna | Jl. Santai No.10, Bandung | 08:00–22:00</p>
     <p>Instagram: @kafemoderna</p>
     <div class="social-icons">
@@ -116,7 +129,9 @@
       <a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank" title="Google Maps"><i class="fas fa-map-marker-alt"></i></a>
     </div>
     <p><a href="https://www.google.com/maps/place/Kafe+Moderna" target="_blank">Dukung & beri ulasan kami di Google Maps</a></p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
@@ -135,5 +150,6 @@
       event.preventDefault();
       alert('Pesanan Anda telah dikirim!');
     }
-  </script></body>
+  </script>
+</body>
 </html>
