@@ -1,225 +1,364 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Menu Kafe Profesional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Selamat datang di Kafe Kami! Nikmati berbagai minuman dan makanan lezat di tempat yang nyaman.">
+    <title>Kafe Kami</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
-            padding: 0;
-            margin: 0;
         }
+
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 50px 0;
             text-align: center;
+            padding: 40px 20px;
         }
+
         header h1 {
-            font-size: 48px;
-            letter-spacing: 2px;
+            font-size: 36px;
+            font-weight: bold;
         }
-        .container {
-            width: 90%;
-            margin: 0 auto;
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+            letter-spacing: 1px;
         }
-        .menu-category {
-            margin-bottom: 60px;
-        }
-        .menu-category h2 {
-            text-transform: uppercase;
-            font-size: 32px;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .menu-category h2::after {
-            content: "";
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: #e74c3c;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .menu-item {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        nav ul {
+            list-style-type: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            justify-content: center;
+            background-color: #34495e;
+            padding: 15px 0;
         }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+
+        .hero {
+            background: url('cafe-image.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .menu-category {
+            margin-bottom: 40px;
+        }
+
+        .menu-category h3 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
         .menu-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
+
         .menu-item img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
+            width: 100%;
+            height: 200px;
             object-fit: cover;
-            margin-right: 20px;
+            border-radius: 8px;
         }
-        .menu-item .description {
-            flex: 1;
-        }
+
         .menu-item h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #34495e;
-            margin-bottom: 10px;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 500;
         }
+
         .menu-item p {
+            margin-top: 10px;
             font-size: 16px;
             color: #7f8c8d;
         }
-        .price {
-            font-size: 20px;
-            font-weight: 600;
-            color: #e74c3c;
-            text-align: right;
-            min-width: 100px;
-        }
+
         footer {
             background-color: #2c3e50;
             color: white;
             text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer .social-icons {
+            margin-top: 20px;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #f1c40f;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            height: 400px;
+        }
+
+        .reviews {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .review {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            font-size: 14px;
-            position: fixed;
-            bottom: 0;
+            margin: 10px 0;
+            max-width: 600px;
             width: 100%;
         }
-        footer a {
-            color: #e74c3c;
-            text-decoration: none;
+
+        .review h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        .review p {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-top: 10px;
         }
-        /* Responsif untuk perangkat mobile */
-        @media screen and (max-width: 768px) {
-            .menu-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .menu-item img {
-                margin-bottom: 15px;
-            }
-            .price {
-                text-align: left;
-                margin-top: 10px;
-            }
+
+        .review p::before {
+            content: '“';
+            font-size: 36px;
+            color: #f1c40f;
+            position: absolute;
+            top: -15px;
+            left: 15px;
+        }
+
+        .review p::after {
+            content: '”';
+            font-size: 36px;
+            color: #f1c40f;
+            position: absolute;
+            bottom: -15px;
+            right: 15px;
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
-        <h1>Menu Kafe Profesional</h1>
+        <h1>Kafe Kami</h1>
+        <p>Rasakan Keindahan dan Kenikmatan Kopi & Makanan</p>
     </header>
 
-    <div class="container">
-        <!-- Minuman -->
+    <nav>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Selamat Datang di Kafe Kami</h1>
+    </section>
+
+    <section id="menu">
+        <h2>Menu Kami</h2>
+
         <div class="menu-category">
-            <h2>Minuman</h2>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Kopi Susu">
-                <div class="description">
-                    <h3>Kopi Susu</h3>
-                    <p>Racikan kopi blend dengan susu segar, sempurna untuk memulai hari.</p>
+            <h3>Kopi</h3>
+            <div class="menu">
+                <div class="menu-item">
+                    <img src="coffee1.jpg" alt="Kopi Espresso">
+                    <h3>Kopi Espresso</h3>
+                    <p>Espresso murni dengan rasa kuat dan pekat.</p>
                 </div>
-                <div class="price">Rp 25,000</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Teh Tarik">
-                <div class="description">
-                    <h3>Teh Tarik</h3>
-                    <p>Teh tarik khas Malaysia, dengan rasa manis dan lembut.</p>
+                <div class="menu-item">
+                    <img src="coffee2.jpg" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>Kopi espresso dengan susu berbusa lembut.</p>
                 </div>
-                <div class="price">Rp 20,000</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Es Lemon Tea">
-                <div class="description">
-                    <h3>Es Lemon Tea</h3>
-                    <p>Teh es yang menyegarkan dengan sentuhan lemon yang tajam.</p>
+                <div class="menu-item">
+                    <img src="coffee3.jpg" alt="Latte">
+                    <h3>Latte</h3>
+                    <p>Kopi espresso dengan susu panas dan sedikit busa.</p>
                 </div>
-                <div class="price">Rp 18,000</div>
             </div>
         </div>
 
-        <!-- Makanan -->
         <div class="menu-category">
-            <h2>Makanan</h2>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Roti Bakar Coklat">
-                <div class="description">
-                    <h3>Roti Bakar Coklat</h3>
-                    <p>Roti panggang dengan isian coklat leleh yang lembut.</p>
+            <h3>Makanan Ringan</h3>
+            <div class="menu">
+                <div class="menu-item">
+                    <img src="sandwich.jpg" alt="Sandwich">
+                    <h3>Sandwich</h3>
+                    <p>Sandwich isi lezat dengan roti segar.</p>
                 </div>
-                <div class="price">Rp 15,000</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Spaghetti Aglio Olio">
-                <div class="description">
-                    <h3>Spaghetti Aglio Olio</h3>
-                    <p>Spaghetti dengan bawang putih, minyak zaitun, dan cabe.</p>
+                <div class="menu-item">
+                    <img src="chips.jpg" alt="Keripik">
+                    <h3>Keripik</h3>
+                    <p>Keripik renyah, cocok sebagai teman kopi Anda.</p>
                 </div>
-                <div class="price">Rp 45,000</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Chicken Wings">
-                <div class="description">
-                    <h3>Chicken Wings</h3>
-                    <p>Sayap ayam panggang dengan saus BBQ khas.</p>
+                <div class="menu-item">
+                    <img src="salad.jpg" alt="Salad">
+                    <h3>Salad</h3>
+                    <p>Salad segar dengan bahan-bahan pilihan.</p>
                 </div>
-                <div class="price">Rp 30,000</div>
             </div>
         </div>
 
-        <!-- Camilan -->
         <div class="menu-category">
-            <h2>Camilan</h2>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="French Fries">
-                <div class="description">
-                    <h3>French Fries</h3>
-                    <p>Kentang goreng renyah yang disajikan dengan saus sambal.</p>
+            <h3>Kue</h3>
+            <div class="menu">
+                <div class="menu-item">
+                    <img src="cake1.jpg" alt="Brownies">
+                    <h3>Brownies</h3>
+                    <p>Brownies coklat yang lembut dan lezat.</p>
                 </div>
-                <div class="price">Rp 12,000</div>
-            </div>
-            <div class="menu-item">
-                <img src="https://via.placeholder.com/70" alt="Popcorn">
-                <div class="description">
-                    <h3>Popcorn</h3>
-                    <p>Popcorn ringan dengan sedikit garam untuk camilan nikmat.</p>
+                <div class="menu-item">
+                    <img src="cake2.jpg" alt="Cupcake">
+                    <h3>Cupcake</h3>
+                    <p>Cupcake manis dengan berbagai rasa.</p>
                 </div>
-                <div class="price">Rp 10,000</div>
+                <div class="menu-item">
+                    <img src="cake3.jpg" alt="Kue Keju">
+                    <h3>Kue Keju</h3>
+                    <p>Kue keju lezat yang menggoda.</p>
+                </div>
             </div>
         </div>
-    </div>
+
+    </section>
+
+    <section id="about">
+        <h2>Tentang Kami</h2>
+        <p>Kafe Kami adalah tempat yang nyaman untuk menikmati kopi berkualitas, makanan lezat, dan suasana yang hangat. Kami berkomitmen untuk memberikan pengalaman terbaik bagi setiap pengunjung.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak Kami</h2>
+        <p>Alamat: Jalan Kafe No. 123, Kota ABC</p>
+        <p>Telepon: (021) 12345678</p>
+        <p>Email: info@kafekami.com</p>
+    </section>
+
+    <section id="map">
+        <h2>Lokasi Kami</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3123.445526540274!2d106.8414806!3d-6.2057653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69a0e3801a29d1%3A0x7d2e9a6b0cd72f68!2sKafe%20Kami!5e0!3m2!1sid!2sid!4v1592796248472!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Ulasan Kami</h2>
+        <div class="reviews">
+            <div class="review">
+                <h4>John Doe</h4>
+                <p>"Kafe yang sangat nyaman dan kopinya enak sekali! Tempatnya juga cocok untuk ngobrol bersama teman-teman."</p>
+            </div>
+            <div class="review">
+                <h4>Jane Smith</h4>
+                <p>"Suasana di sini sangat tenang dan santai, sangat cocok untuk bekerja sambil menikmati kopi."</p>
+            </div>
+            <div class="review">
+                <h4>Mark Johnson</h4>
+                <p>"Layanan yang ramah dan cepat. Makanan di sini juga lezat. Sangat saya rekomendasikan!"</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Kafe Profesional | <a href="mailto:contact@kafe.com">Hubungi Kami</a></p>
+        <p>&copy; 2025 Kafe Kami | All Rights Reserved</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/KafeKami" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/KafeKami" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://twitter.com/KafeKami" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+        </div>
     </footer>
 
+    <!-- Include Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
-</html>
+
+    </html>
