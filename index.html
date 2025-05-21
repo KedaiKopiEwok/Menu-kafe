@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1024, initial-scale=1.0"> <!-- Fixed viewport for desktop -->
     <meta name="description" content="Selamat datang di Kafe Kami! Nikmati berbagai minuman dan makanan lezat di tempat yang nyaman.">
     <title>Kafe Kami</title>
     <link rel="stylesheet" href="styles.css">
@@ -19,6 +19,8 @@
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
+            width: 1024px; /* Force body width to be desktop size */
+            margin: 0 auto; /* Center the body content */
         }
 
         header {
@@ -102,7 +104,7 @@
 
         .menu {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr); /* Fixed 3-column grid for desktop */
             gap: 20px;
             justify-items: center;
         }
@@ -215,6 +217,7 @@
             bottom: -15px;
             right: 15px;
         }
+
     </style>
 </head>
 
@@ -361,4 +364,4 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 
-    </html>
+</html>
