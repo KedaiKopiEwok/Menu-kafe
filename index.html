@@ -1,192 +1,225 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Menu Kafe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: #f5f3ee;
-      color: #333;
-    }
-    header {
-      background-color: #e0d6c3;
-      padding: 20px;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-    }
-    h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-    .menu-section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .category {
-      margin-top: 40px;
-    }
-    .category h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 1px dashed #ccc;
-      padding: 20px 0;
-    }
-    .menu-item img {
-      width: 120px;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-    .menu-info {
-      flex-grow: 1;
-      padding-left: 20px;
-    }
-    .menu-info h3 {
-      margin: 0;
-      font-size: 20px;
-      font-family: 'Playfair Display', serif;
-    }
-    .menu-info p {
-      margin: 8px 0;
-      font-size: 14px;
-      color: #555;
-    }
-    .price-rating {
-      text-align: right;
-      font-size: 14px;
-    }
-    .cta {
-      text-align: center;
-      padding: 40px;
-    }
-    .cta button {
-      background-color: #d4b49b;
-      border: none;
-      padding: 15px 30px;
-      font-size: 16px;
-      font-family: 'Playfair Display', serif;
-      cursor: pointer;
-      border-radius: 5px;
-      color: #fff;
-    }
-    .cta button:hover {
-      background-color: #b2957a;
-    }
-    footer {
-      background-color: #e0d6c3;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #333;
-      text-align: center;
-    }
-    footer a {
-      color: #333;
-      text-decoration: none;
-    }
-    .social-icons {
-      margin: 10px 0;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .map {
-      margin-top: 20px;
-    }
-    .map iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 300px;
-      border: none;
-      border-radius: 8px;
-    }
-    .contact-form {
-      margin-top: 30px;
-    }
-    .contact-form form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 500px;
-      margin: auto;
-    }
-    .contact-form input, .contact-form textarea {
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #bbb;
-      font-size: 14px;
-    }
-    .contact-form button {
-      background-color: #d4b49b;
-      color: white;
-      border: none;
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background-color: #b2957a;
-    }
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    .whatsapp-button:hover {
-      background-color: #1ebe57;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu Kafe Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 48px;
+            letter-spacing: 2px;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .menu-category {
+            margin-bottom: 60px;
+        }
+        .menu-category h2 {
+            text-transform: uppercase;
+            font-size: 32px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .menu-category h2::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #e74c3c;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .menu-item {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .menu-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .menu-item .description {
+            flex: 1;
+        }
+        .menu-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+        .menu-item p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e74c3c;
+            text-align: right;
+            min-width: 100px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* Responsif untuk perangkat mobile */
+        @media screen and (max-width: 768px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .menu-item img {
+                margin-bottom: 15px;
+            }
+            .price {
+                text-align: left;
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Menu Kami</h1>
-    <p>Rasa klasik, gaya kekinian</p>
-  </header>
-  <div class="menu-section">
-    <!-- Menu Items (sama seperti sebelumnya) -->
-  </div>
-  <div class="cta">
-    <button>Pesan Sekarang</button>
-  </div>  <div class="contact-form">
-    <h2>Kontak Kami</h2>
-    <form>
-      <input type="text" placeholder="Nama Anda" required />
-      <input type="email" placeholder="Email Anda" required />
-      <textarea rows="4" placeholder="Pesan Anda"></textarea>
-      <button type="submit">Kirim</button>
-    </form>
-  </div>  <footer>
-    <p><strong>Alamat:</strong> Jl. Kenangan No. 45, Bandung</p>
-    <p><strong>Jam Operasional:</strong> Senin - Minggu, 08.00 - 22.00 WIB</p>
-    <p><strong>Rating di Google Maps:</strong> 4.6/5 dari 320 ulasan</p>
-    <div class="social-icons">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733558.png" alt="Instagram"> Instagram</a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook"> Facebook</a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/24/3046/3046121.png" alt="TikTok"> TikTok</a>
+
+    <header>
+        <h1>Menu Kafe Profesional</h1>
+    </header>
+
+    <div class="container">
+        <!-- Minuman -->
+        <div class="menu-category">
+            <h2>Minuman</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Kopi Susu">
+                <div class="description">
+                    <h3>Kopi Susu</h3>
+                    <p>Racikan kopi blend dengan susu segar, sempurna untuk memulai hari.</p>
+                </div>
+                <div class="price">Rp 25,000</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Teh Tarik">
+                <div class="description">
+                    <h3>Teh Tarik</h3>
+                    <p>Teh tarik khas Malaysia, dengan rasa manis dan lembut.</p>
+                </div>
+                <div class="price">Rp 20,000</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Es Lemon Tea">
+                <div class="description">
+                    <h3>Es Lemon Tea</h3>
+                    <p>Teh es yang menyegarkan dengan sentuhan lemon yang tajam.</p>
+                </div>
+                <div class="price">Rp 18,000</div>
+            </div>
+        </div>
+
+        <!-- Makanan -->
+        <div class="menu-category">
+            <h2>Makanan</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Roti Bakar Coklat">
+                <div class="description">
+                    <h3>Roti Bakar Coklat</h3>
+                    <p>Roti panggang dengan isian coklat leleh yang lembut.</p>
+                </div>
+                <div class="price">Rp 15,000</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Spaghetti Aglio Olio">
+                <div class="description">
+                    <h3>Spaghetti Aglio Olio</h3>
+                    <p>Spaghetti dengan bawang putih, minyak zaitun, dan cabe.</p>
+                </div>
+                <div class="price">Rp 45,000</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Chicken Wings">
+                <div class="description">
+                    <h3>Chicken Wings</h3>
+                    <p>Sayap ayam panggang dengan saus BBQ khas.</p>
+                </div>
+                <div class="price">Rp 30,000</div>
+            </div>
+        </div>
+
+        <!-- Camilan -->
+        <div class="menu-category">
+            <h2>Camilan</h2>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="French Fries">
+                <div class="description">
+                    <h3>French Fries</h3>
+                    <p>Kentang goreng renyah yang disajikan dengan saus sambal.</p>
+                </div>
+                <div class="price">Rp 12,000</div>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/70" alt="Popcorn">
+                <div class="description">
+                    <h3>Popcorn</h3>
+                    <p>Popcorn ringan dengan sedikit garam untuk camilan nikmat.</p>
+                </div>
+                <div class="price">Rp 10,000</div>
+            </div>
+        </div>
     </div>
-    <div class="map">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31619.739138870084!2d107.58953476037598!3d-6.914864422232268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7c705e9b40d%3A0x2e50d8b7e901c80f!2sBandung!5e0!3m2!1sid!2sid!4v1624170452381!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <p>&copy; 2025 Kafe Vintage Modern</p>
-  </footer><a class="whatsapp-button" href="https://wa.me/6281234567890" target="_blank">WA</a>
+
+    <footer>
+        <p>&copy; 2025 Kafe Profesional | <a href="mailto:contact@kafe.com">Hubungi Kami</a></p>
+    </footer>
 
 </body>
 </html>
